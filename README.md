@@ -100,13 +100,6 @@ Tabela `challenge_progress`:
 
 ---
 
-## Testes
-
-```powershell
-php artisan test
-```
-
----
 
 ## SEO (baseline)
 
