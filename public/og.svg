@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#09090b"/>
+      <stop offset="1" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22c55e" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="120" r="240" fill="#ffffff" opacity="0.06"/>
+  <circle cx="240" cy="560" r="320" fill="#ffffff" opacity="0.05"/>
+  <rect x="72" y="88" width="12" height="454" rx="6" fill="url(#accent)"/>
+
+  <text x="120" y="190" fill="#e4e4e7" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="56" font-weight="700">
+    EloquentTrainer
+  </text>
+  <text x="120" y="260" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="30">
+    Treino de Eloquent ORM com desafios e SQL explainer
+  </text>
+  <text x="120" y="330" fill="#a1a1aa" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="24">
+    Movie::query()-&gt;where(...)-&gt;with(...)-&gt;get()
+  </text>
+</svg>
+

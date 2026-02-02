@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /challenges
+Disallow: /login
+Disallow: /register
+Disallow: /logout
+
+Sitemap: /sitemap.xml
