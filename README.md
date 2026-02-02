@@ -100,16 +100,6 @@ Tabela `challenge_progress`:
 
 ---
 
-
-## SEO (baseline)
-
-- Landing indexavel (`/`) com meta tags via `resources/views/layouts/app.blade.php`
-- `robots.txt` bloqueia rotas privadas e aponta para `sitemap.xml`
-- `GET /sitemap.xml` gera um sitemap simples
-- OG image local: `public/og.svg`
-
----
-
 ## Notas de seguranca (importante)
 
 O Judge usa `eval()` para executar a expressao Eloquent do usuario. Ha filtragem por regex e rollback via transaction, mas isso **nao** e um sandbox seguro para producao.
