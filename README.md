@@ -99,13 +99,3 @@ Tabela `challenge_progress`:
 - `last_code`, `completed_at`
 
 ---
-
-## Notas de seguranca (importante)
-
-O Judge usa `eval()` para executar a expressao Eloquent do usuario. Ha filtragem por regex e rollback via transaction, mas isso **nao** e um sandbox seguro para producao.
-
-Se for publicar:
-- isole a execucao (processo/container separado)
-- aplique timeouts e limites de memoria
-- use parser/AST no lugar de regex
-- registre auditoria e bloqueie funcoes perigosas por config/ini
