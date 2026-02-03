@@ -39,7 +39,7 @@ final class ChallengeRepository
             'title' => 'Catalogo 2024 em Streaming',
             'difficulty' => 'easy',
             'points' => 10,
-            'story' => 'Um editor quer listar os filmes lancados em 2024 que ja estao disponiveis em streaming.',
+            'story' => 'Um editor quer listar os filmes lancados em 2024 que ja estao disponiveis em streaming. Ordene por id (asc).',
             'models' => ['Movie'],
             'starter_code' => 'Movie::query()',
             'gold' => fn () => Movie::query()
@@ -53,7 +53,7 @@ final class ChallengeRepository
             'title' => 'Diretores Prolificos',
             'difficulty' => 'easy',
             'points' => 10,
-            'story' => 'A curadoria quer destacar diretores com pelo menos 2 filmes no catalogo.',
+            'story' => 'A curadoria quer destacar diretores com pelo menos 2 filmes no catalogo. Ordene por movies_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Director', 'Movie'],
             'starter_code' => 'Director::query()',
             'gold' => fn () => Director::query()
@@ -68,7 +68,7 @@ final class ChallengeRepository
             'title' => 'Sci-Fi Bem Avaliado',
             'difficulty' => 'medium',
             'points' => 50,
-            'story' => 'O time de marketing precisa de uma lista de filmes Sci-Fi com nota media >= 4.0, incluindo o diretor.',
+            'story' => 'O time de marketing precisa de uma lista de filmes Sci-Fi com nota media >= 4.0, incluindo o diretor. Ordene por avg_rating (desc) e, em caso de empate, por id (asc).',
             'models' => ['Movie', 'Genre', 'Director'],
             'starter_code' => 'Movie::query()',
             'gold' => fn () => Movie::query()
@@ -84,7 +84,7 @@ final class ChallengeRepository
             'title' => 'Elenco em Destaque',
             'difficulty' => 'medium',
             'points' => 50,
-            'story' => 'O aplicativo quer mostrar os 5 atores com mais papeis de protagonista (pivot is_lead=true) em filmes em streaming.',
+            'story' => 'O aplicativo quer mostrar os 5 atores com mais papeis de protagonista (pivot is_lead=true) em filmes em streaming. Ordene por lead_streaming_roles_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Actor', 'Movie', 'actor_movie (pivot)'],
             'starter_code' => 'Actor::query()',
             'gold' => fn () => Actor::query()
@@ -103,7 +103,7 @@ final class ChallengeRepository
             'title' => 'Assinantes Engajados',
             'difficulty' => 'hard',
             'points' => 100,
-            'story' => 'Identifique usuarios com assinatura ativa (subscriptions.status=active) que fizeram pelo menos 3 reviews de filmes com rating >= 4.',
+            'story' => 'Identifique usuarios com assinatura ativa (subscriptions.status=active) que fizeram pelo menos 3 reviews de filmes com rating >= 4. Ordene por high_movie_reviews_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['User', 'Subscription', 'Review', 'Movie'],
             'starter_code' => 'User::query()',
             'gold' => fn () => User::query()
@@ -126,7 +126,7 @@ final class ChallengeRepository
             'title' => 'Reviews Uteis em Streaming',
             'difficulty' => 'hard',
             'points' => 100,
-            'story' => 'Destaque filmes em streaming com pelo menos 2 reviews nao-spoiler (is_spoiler=false) e helpful_count > 50.',
+            'story' => 'Destaque filmes em streaming com pelo menos 2 reviews nao-spoiler (is_spoiler=false) e helpful_count > 50. Ordene por helpful_reviews_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Movie', 'Review'],
             'starter_code' => 'Movie::query()',
             'gold' => fn () => Movie::query()
@@ -153,7 +153,7 @@ final class ChallengeRepository
                 'title' => "Lancamentos de {$year}",
                 'difficulty' => 'easy',
                 'points' => 10,
-                'story' => "Liste filmes com movies.release_year = {$year}, ordenando por id.",
+                'story' => "Liste filmes com movies.release_year = {$year}, ordenando por id (asc).",
                 'models' => ['Movie'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()->where('release_year', $year)->orderBy('id'),
@@ -165,7 +165,7 @@ final class ChallengeRepository
             'title' => 'Streaming com Data de Inicio',
             'difficulty' => 'easy',
             'points' => 10,
-            'story' => 'Liste filmes em streaming que possuem streaming_start_date preenchida (nao-null).',
+            'story' => 'Liste filmes em streaming que possuem streaming_start_date preenchida (nao-null). Ordene por id (asc).',
             'models' => ['Movie'],
             'starter_code' => 'Movie::query()',
             'gold' => fn () => Movie::query()
@@ -193,7 +193,7 @@ final class ChallengeRepository
             'title' => 'Filmes Longos',
             'difficulty' => 'easy',
             'points' => 10,
-            'story' => 'Liste filmes com runtime_minutes >= 150 (ignorando os que estao null).',
+            'story' => 'Liste filmes com runtime_minutes >= 150 (ignorando os que estao null). Ordene por runtime_minutes (desc) e, em caso de empate, por id (asc).',
             'models' => ['Movie'],
             'starter_code' => 'Movie::query()',
             'gold' => fn () => Movie::query()
@@ -208,7 +208,7 @@ final class ChallengeRepository
             'title' => 'Diretores com IMDB ID',
             'difficulty' => 'easy',
             'points' => 10,
-            'story' => 'Liste diretores com imdb_id preenchido (nao-null), ordenando por id.',
+            'story' => 'Liste diretores com imdb_id preenchido (nao-null), ordenando por id (asc).',
             'models' => ['Director'],
             'starter_code' => 'Director::query()',
             'gold' => fn () => Director::query()->whereNotNull('imdb_id')->orderBy('id'),
@@ -219,7 +219,7 @@ final class ChallengeRepository
             'title' => 'Perfis Publicos',
             'difficulty' => 'easy',
             'points' => 10,
-            'story' => 'Liste perfis publicos (profiles.is_public = true), ordenando por id.',
+            'story' => 'Liste perfis publicos (profiles.is_public = true), ordenando por id (asc).',
             'models' => ['Profile'],
             'starter_code' => 'Profile::query()',
             'gold' => fn () => Profile::query()->where('is_public', true)->orderBy('id'),
@@ -238,7 +238,7 @@ final class ChallengeRepository
                 'title' => 'Catalogo por Genero: ' . strtoupper($slug),
                 'difficulty' => 'medium',
                 'points' => 50,
-                'story' => "Liste filmes que possuem o genero genres.slug = '{$slug}'. Inclua o diretor e ordene por id.",
+                'story' => "Liste filmes que possuem o genero genres.slug = '{$slug}'. Inclua o diretor e ordene por id (asc).",
                 'models' => ['Movie', 'Genre', 'Director', 'genre_movie (pivot)'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()
@@ -253,7 +253,7 @@ final class ChallengeRepository
             'title' => 'Diretores com Nota Media Boa',
             'difficulty' => 'medium',
             'points' => 50,
-            'story' => 'Liste diretores que possuem pelo menos 1 filme com avg_rating >= 4.0.',
+            'story' => 'Liste diretores que possuem pelo menos 1 filme com avg_rating >= 4.0. Ordene por good_movies_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Director', 'Movie'],
             'starter_code' => 'Director::query()',
             'gold' => fn () => Director::query()
@@ -268,7 +268,7 @@ final class ChallengeRepository
             'title' => 'Filmes com Muitos Reviews',
             'difficulty' => 'medium',
             'points' => 50,
-            'story' => 'Liste filmes que possuem 5+ reviews (qualquer rating), com reviews_count e ordenacao por reviews_count desc.',
+            'story' => 'Liste filmes que possuem 5+ reviews (qualquer rating), com reviews_count. Ordene por reviews_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Movie', 'Review'],
             'starter_code' => 'Movie::query()',
             'gold' => fn () => Movie::query()
@@ -283,7 +283,7 @@ final class ChallengeRepository
             'title' => 'Atores em Filmes de 2024',
             'difficulty' => 'medium',
             'points' => 50,
-            'story' => 'Liste atores que participam de pelo menos 1 filme com release_year = 2024.',
+            'story' => 'Liste atores que participam de pelo menos 1 filme com release_year = 2024. Ordene por movies_2024_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Actor', 'Movie', 'actor_movie (pivot)'],
             'starter_code' => 'Actor::query()',
             'gold' => fn () => Actor::query()
@@ -298,7 +298,7 @@ final class ChallengeRepository
             'title' => 'Assinaturas Ativas (Usuarios)',
             'difficulty' => 'medium',
             'points' => 50,
-            'story' => 'Liste usuarios que possuem pelo menos 1 assinatura com status = active, com subscriptions_count.',
+            'story' => 'Liste usuarios que possuem pelo menos 1 assinatura com status = active, com active_subscriptions_count. Ordene por active_subscriptions_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['User', 'Subscription'],
             'starter_code' => 'User::query()',
             'gold' => fn () => User::query()
@@ -316,7 +316,7 @@ final class ChallengeRepository
             'title' => 'Top Filmes (Streaming + Nota + Reviews)',
             'difficulty' => 'hard',
             'points' => 100,
-            'story' => 'Liste filmes em streaming com avg_rating >= 4.0 e pelo menos 3 reviews (rating >= 4).',
+            'story' => 'Liste filmes em streaming com avg_rating >= 4.0 e pelo menos 3 reviews (rating >= 4), com high_reviews_count. Ordene por high_reviews_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Movie', 'Review'],
             'starter_code' => 'Movie::query()',
             'gold' => fn () => Movie::query()
@@ -338,7 +338,7 @@ final class ChallengeRepository
             'title' => 'Diretores Consistentes',
             'difficulty' => 'hard',
             'points' => 100,
-            'story' => 'Liste diretores que possuem 2+ filmes e TODOS esses filmes tem is_streaming = true.',
+            'story' => 'Liste diretores que possuem 2+ filmes e TODOS esses filmes tem is_streaming = true. Ordene por movies_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Director', 'Movie'],
             'starter_code' => 'Director::query()',
             'gold' => fn () => Director::query()
@@ -354,7 +354,7 @@ final class ChallengeRepository
             'title' => 'Usuarios que Avaliaram Diretores',
             'difficulty' => 'hard',
             'points' => 100,
-            'story' => 'Liste usuarios que fizeram pelo menos 2 reviews em diretores (reviewable_type = Director::class).',
+            'story' => 'Liste usuarios que fizeram pelo menos 2 reviews em diretores (reviewable_type = Director::class), com director_reviews_count. Ordene por director_reviews_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['User', 'Review', 'Director'],
             'starter_code' => 'User::query()',
             'gold' => fn () => User::query()
@@ -376,7 +376,7 @@ final class ChallengeRepository
             'title' => 'Atores Muito Avaliados',
             'difficulty' => 'hard',
             'points' => 100,
-            'story' => 'Liste atores com 2+ reviews e rating medio (avg) >= 4.0.',
+            'story' => 'Liste atores com 2+ reviews e rating medio (avg) >= 4.0. Ordene por reviews_avg_rating (desc) e, em caso de empate, por id (asc).',
             'models' => ['Actor', 'Review'],
             'starter_code' => 'Actor::query()',
             'gold' => fn () => Actor::query()
@@ -393,7 +393,7 @@ final class ChallengeRepository
             'title' => 'Filmes com Elenco Lider Forte',
             'difficulty' => 'hard',
             'points' => 100,
-            'story' => 'Liste filmes que tem 2+ atores com pivot is_lead=true.',
+            'story' => 'Liste filmes que tem 2+ atores com pivot is_lead=true, com lead_actors_count. Ordene por lead_actors_count (desc) e, em caso de empate, por id (asc).',
             'models' => ['Movie', 'Actor', 'actor_movie (pivot)'],
             'starter_code' => 'Movie::query()',
             'gold' => fn () => Movie::query()
@@ -417,7 +417,7 @@ final class ChallengeRepository
                 'title' => 'Filmes Sem Synopsis',
                 'difficulty' => 'easy',
                 'points' => 10,
-                'story' => 'Liste filmes com synopsis null (sem descricao), ordenando por id.',
+                'story' => 'Liste filmes com synopsis null (sem descricao), ordenando por id (asc).',
                 'models' => ['Movie'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()->whereNull('synopsis')->orderBy('id'),
@@ -427,7 +427,7 @@ final class ChallengeRepository
                 'title' => 'Filmes com Revenue Alto',
                 'difficulty' => 'easy',
                 'points' => 10,
-                'story' => 'Liste filmes com revenue >= 200000000 (ignorando null), ordene por revenue desc.',
+                'story' => 'Liste filmes com revenue >= 200000000 (ignorando null). Ordene por revenue (desc) e, em caso de empate, por id (asc).',
                 'models' => ['Movie'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()
@@ -441,7 +441,7 @@ final class ChallengeRepository
                 'title' => 'Usuarios com Perfil',
                 'difficulty' => 'easy',
                 'points' => 10,
-                'story' => 'Liste usuarios que possuem profile (hasOne), ordenando por id.',
+                'story' => 'Liste usuarios que possuem profile (hasOne), ordenando por id (asc).',
                 'models' => ['User', 'Profile'],
                 'starter_code' => 'User::query()',
                 'gold' => fn () => User::query()->has('profile')->orderBy('id'),
@@ -451,7 +451,7 @@ final class ChallengeRepository
                 'title' => 'Filmes com Genero Primario',
                 'difficulty' => 'medium',
                 'points' => 50,
-                'story' => 'Liste filmes que possuem pelo menos 1 genero com pivot is_primary=true.',
+                'story' => 'Liste filmes que possuem pelo menos 1 genero com pivot is_primary=true, com primary_genres_count. Ordene por primary_genres_count (desc) e, em caso de empate, por id (asc).',
                 'models' => ['Movie', 'Genre', 'genre_movie (pivot)'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()
@@ -465,7 +465,7 @@ final class ChallengeRepository
                 'title' => 'Filmes com Diretor e Elenco',
                 'difficulty' => 'medium',
                 'points' => 50,
-                'story' => 'Liste filmes em streaming, trazendo (eager) director e actors.',
+                'story' => 'Liste filmes em streaming, trazendo (eager) director e actors. Ordene por id (asc).',
                 'models' => ['Movie', 'Director', 'Actor'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()
@@ -478,7 +478,7 @@ final class ChallengeRepository
                 'title' => 'Usuarios com Reviews Uteis',
                 'difficulty' => 'medium',
                 'points' => 50,
-                'story' => 'Liste usuarios que fizeram 2+ reviews com helpful_count >= 10.',
+                'story' => 'Liste usuarios que fizeram 2+ reviews com helpful_count >= 10, com helpful_reviews_count. Ordene por helpful_reviews_count (desc) e, em caso de empate, por id (asc).',
                 'models' => ['User', 'Review'],
                 'starter_code' => 'User::query()',
                 'gold' => fn () => User::query()
@@ -492,7 +492,7 @@ final class ChallengeRepository
                 'title' => 'Assinantes com Reviews e Perfil Publico',
                 'difficulty' => 'hard',
                 'points' => 100,
-                'story' => 'Liste usuarios com profile publico (profiles.is_public=true), com assinatura active e 1+ review (qualquer).',
+                'story' => 'Liste usuarios com profile publico (profiles.is_public=true), com assinatura active e 1+ review (qualquer). Ordene por id (asc).',
                 'models' => ['User', 'Profile', 'Subscription', 'Review'],
                 'starter_code' => 'User::query()',
                 'gold' => fn () => User::query()
@@ -507,7 +507,7 @@ final class ChallengeRepository
                 'title' => 'Filmes de Diretores Avaliados',
                 'difficulty' => 'hard',
                 'points' => 100,
-                'story' => 'Liste filmes cujo diretor tem pelo menos 2 reviews (morph: reviews.reviewable_type = Director::class).',
+                'story' => 'Liste filmes cujo diretor tem pelo menos 2 reviews (morph: reviews.reviewable_type = Director::class). Ordene por id (asc).',
                 'models' => ['Movie', 'Director', 'Review'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()
@@ -520,7 +520,7 @@ final class ChallengeRepository
                 'title' => 'Filmes 2024 com Protagonista e Genero',
                 'difficulty' => 'hard',
                 'points' => 100,
-                'story' => 'Liste filmes de 2024 que tem pelo menos 1 ator protagonista (pivot is_lead=true) e pelo menos 2 generos.',
+                'story' => 'Liste filmes de 2024 que tem pelo menos 1 ator protagonista (pivot is_lead=true) e pelo menos 2 generos. Ordene por id (asc).',
                 'models' => ['Movie', 'Actor', 'Genre', 'actor_movie (pivot)', 'genre_movie (pivot)'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()
@@ -546,7 +546,7 @@ final class ChallengeRepository
                 'title' => "Streaming de {$year}",
                 'difficulty' => 'easy',
                 'points' => 10,
-                'story' => "Liste filmes com is_streaming=true e release_year={$year}, ordenando por id.",
+                'story' => "Liste filmes com is_streaming=true e release_year={$year}, ordenando por id (asc).",
                 'models' => ['Movie'],
                 'starter_code' => 'Movie::query()',
                 'gold' => fn () => Movie::query()->where('is_streaming', true)->where('release_year', $year)->orderBy('id'),
